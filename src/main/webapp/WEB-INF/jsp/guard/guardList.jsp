@@ -210,13 +210,6 @@ document.getElementById("statusFilter").addEventListener("change", async functio
         const search = this.value;
         console.log(search);
         const tbody = document.getElementById("guard-table-body");
-
-        if (search === "") {
-            //Reload full page
-            window.location.href = contextPath + "/guard-list/" + role;
-            return;
-        }
-
         try {
             const url = contextPath + "/guard-list-search/" + role + "?search=" + encodeURIComponent(search);
             const response = await fetch(url);
