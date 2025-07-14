@@ -125,6 +125,22 @@
 <script src="${pageContext.request.contextPath}/bootstrapFiles/bootstrap.bundle.min.js"></script>
 
 <script>
+
+//this is used to capitalize names first later.
+const name = document.getElementById("fullname");
+name.addEventListener("input", function () {
+  let words = this.value.split(" ");
+  let capitalizedWords = words.map(word => {
+    if (word.length > 0) {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }
+    return "";
+  });
+  this.value = capitalizedWords.join(" ");
+});
+
+
+
     const nameInput = document.getElementById("fullname");
     const passwordInput = document.getElementById("password");
 

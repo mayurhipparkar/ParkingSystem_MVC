@@ -85,7 +85,7 @@
             <div class="col-md-6 mb-3">
                 <input type="text"
                        name="search"
-                       id="guardSearch"
+                       id="searchGuard"
                        class="form-control border border-2 border-warning bg-transparent text-dark"
                        placeholder="Search guard name"
                        value="${search}">
@@ -206,7 +206,7 @@ document.getElementById("statusFilter").addEventListener("change", async functio
  // Search by guard name.
  document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("guardSearch").addEventListener("input", async function () {
+    document.getElementById("searchGuard").addEventListener("input", async function () {
         const search = this.value;
         console.log(search);
         const tbody = document.getElementById("guard-table-body");

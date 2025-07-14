@@ -90,6 +90,7 @@ private RestTemplate restTemplate;
 		return result;
 	}
 
+	//this is used to fetch guard record using there name for apply filter in js side. 
 	@Override
 	public List<AllGuardRespDTO> fetchGuardsBySearch(String search, String role) {
 		String url ="http://localhost:8181/guard/search?"+"search=" + UriUtils.encodeQueryParam(search, StandardCharsets.UTF_8)
@@ -98,10 +99,10 @@ private RestTemplate restTemplate;
 		ResponseEntity<AllGuardRespDTO[]> response = restTemplate.getForEntity(url, AllGuardRespDTO[].class);
 		
 		if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-		return Arrays.asList(response.getBody());
+			return Arrays.asList(response.getBody());
 		} else {
-		return new ArrayList<>();
+			return new ArrayList<>();
 		}
 		
-			}
+	}
 }

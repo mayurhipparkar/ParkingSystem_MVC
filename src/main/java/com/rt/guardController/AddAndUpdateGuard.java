@@ -63,7 +63,7 @@ public class AddAndUpdateGuard {
 	public String guardUpdateFormBasedOnId(@PathVariable int id,@PathVariable String role,HttpSession session,Model model,RedirectAttributes redirectAttributes) {
 		System.out.println("Guard fetched data in update :"+id+ " " +role);
 				
-		FetchGuardDetailsReqDTO fetchGuardDetailsReqDTO=new FetchGuardDetailsReqDTO(id,role);
+		FetchGuardDetailsReqDTO fetchGuardDetailsReqDTO=new FetchGuardDetailsReqDTO(id,role);// stored in dto.
 		
 		FetchGuardDetailsRespDTO fetchGuardDetailsRespDTO=guardServiceInterface.fetchGuardDataById(fetchGuardDetailsReqDTO);
 		System.out.println("Guard fetched data set in dto :"+fetchGuardDetailsReqDTO.getId()+ " " +fetchGuardDetailsReqDTO.getRole());

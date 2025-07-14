@@ -55,7 +55,7 @@ public class GuardList {
 		return"guard/guardList";
 	}
 	
-	//it is used to filter guard record based on there status (Active or Inactive).
+	//it is used to filter guard record based on there status (Active or Inactive) and it return json data..
 	@ResponseBody
 	@GetMapping("/guard-list-filter/{role}")
 	public Map<String, Object> guardListByStatusFilter(@PathVariable String role,
@@ -69,7 +69,7 @@ public class GuardList {
 	}
 	
 	
-	// it is used to filter guard record based on their searched name.
+	// it is used to filter guard record based on their searched name and it return json data.
 	@ResponseBody
 	 @GetMapping("/guard-list-search/{role}")
 	    public List<AllGuardRespDTO> showGuardList(@PathVariable String role,
