@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rt.signinAndSignupServiceImp.LoginServiceImp;
 import com.rt.signinAndSignupServiceImp.SignUpServiceImp;
+import com.rt.signinAndSignupServiceInterface.LoginServiceInterface;
 import com.rt.signupAndSignInDTO.RequestLoginDTO;
 import com.rt.signupAndSignInDTO.RequestSignUpDTO;
 import com.rt.signupAndSignInDTO.ResponseLoginDTO;
@@ -45,7 +47,7 @@ public class LoginSignUpController {
 	// Login logic Start.
 		
 		@Autowired
-		LoginServiceImp loginService; //autowired login service class.
+		private LoginServiceInterface loginService; //autowired login service class.
 		
 		@PostMapping("/loginuser")
 		public String loginForm(@ModelAttribute RequestLoginDTO reqLoginDto, Model model, HttpSession session) {
@@ -67,7 +69,16 @@ public class LoginSignUpController {
 		    }
 
 		    model.addAttribute("status", "Invalid email or password...!");
+		    model.addAttribute("showForgotPassword", true);
 		    return "signInAndSignUp";
+		}
+		
+		
+		@PostMapping("/resetpassword")
+		public String resetPassword(@RequestParam String email,@RequestParam String newPassword,Model model) {
+			String message=loginService.resetPassword(email,newPassword);
+			model.addAttribute("status", message);
+			return "signInAndSignUp";		
 		}
 
 		

@@ -10,6 +10,12 @@
 </style>
  
 <div class="container main-container">
+ <div class="col-sm-12 col-md-12">
+        <c:if test="${not empty msgStatus}">
+            <div id="vehicle-msg" class="alert alert-success text-center w-100">${msgStatus}</div>
+        </c:if>
+ </div>
+
   <div class="card shadow-lg">
     <div class="card-header bg-primary text-white">
       <h4 class="mb-0">Vehicle Entry Form</h4>
@@ -18,12 +24,22 @@
       <form action="add-Vehicle" method="post">
         <div class="row mb-3">
           <div class="col-md-6">
-            <label for="vehicleType" class="form-label">Vehicle Type</label>
-            <select class="form-select" id="vehicleType" name="vehicleType" required>
-              <option value="">Select</option>
-              <option value="two wheeler">Two Wheeler</option>
-              <option value="four wheeler">Four Wheeler</option>
-            </select>
+            <label for="vehicleType" class="form-label">Vehicle Type</label>      
+            <select name="vehicleType" class="form-control form-select" required 
+			        <c:if test="${not empty vehicleTypeLock}">disabled</c:if>>
+			    <option value="">Select</option>
+			    <option value="two wheeler"
+			        <c:if test="${vehicleTypeLock == 'two'}">selected</c:if>>Two Wheeler</option>
+			    <option value="four wheeler"
+			        <c:if test="${vehicleTypeLock == 'four'}">selected</c:if>>Four Wheeler</option>
+			</select>
+			
+          <!--   it is applicable when above filed act as disable when it comes from parking form -->
+            <c:if test="${not empty vehicleTypeLock}">
+			    <input type="hidden" name="vehicleType"
+			           value="${vehicleTypeLock == 'two' ? 'two wheeler' : 'four wheeler'}" />
+			</c:if>
+            
           </div>
           <div class="col-md-6">
             <label for="vehicleNumber" class="form-label">Vehicle Number</label>
@@ -36,10 +52,12 @@
 			       title="Format must be like MH12AB1234 (2 letters, 2 digits, 2 letters, 4 digits)"
 
 			 required>
-
-          </div>
+          </div>     
         </div>
-
+        
+<!--   it is used to add flag for redirection  -->
+          <input type="hidden" name="fromParkingForm" value="${param.fromParkingForm}" />
+          
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="ownerName" class="form-label">Owner Name</label>
@@ -130,6 +148,18 @@
   //  Force uppercase in vehicle number
   document.getElementById("vehicleNumber").addEventListener("input", function () {
     this.value = this.value.toUpperCase();
+  });
+  
+  
+  // Hide error message after delay
+  document.addEventListener("DOMContentLoaded", function () {
+      const errorMsg = document.getElementById("vehicle-msg");
+      if (errorMsg) {
+          setTimeout(function () {
+              errorMsg.classList.add("fade-out");
+              setTimeout(() => errorMsg.style.display = "none", 1000);
+          }, 4000);
+      }
   });
 </script>
 

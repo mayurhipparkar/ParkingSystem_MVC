@@ -1,6 +1,6 @@
 package com.rt.vehicleEntryServiceInterface;
 
-import com.rt.vehicleEntryDTO.update.ReqUpdateVehicleInfoDto;
+import com.rt.vehicleEntryDTO.ReqUpdateVehicleInfoDto;
 
 public interface UpdateAndDeleteVehicleInfoInterface {
 	

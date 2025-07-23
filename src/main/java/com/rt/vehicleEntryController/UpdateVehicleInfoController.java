@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.rt.vehicleEntryDTO.update.ReqUpdateVehicleInfoDto;
+import com.rt.vehicleEntryDTO.ReqUpdateVehicleInfoDto;
 import com.rt.vehicleEntryServiceInterface.UpdateAndDeleteVehicleInfoInterface;
 
 import jakarta.servlet.http.HttpSession;

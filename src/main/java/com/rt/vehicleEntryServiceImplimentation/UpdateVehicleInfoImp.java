@@ -7,7 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.rt.vehicleEntryDTO.update.ReqUpdateVehicleInfoDto;
+import com.rt.vehicleEntryDTO.ReqUpdateVehicleInfoDto;
 import com.rt.vehicleEntryServiceInterface.UpdateAndDeleteVehicleInfoInterface;
 
 @Service

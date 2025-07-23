@@ -7,66 +7,88 @@
 			<div class="page-content">
 				<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
                    <div class="col">
-					 <div class="card radius-10 border-start border-0 border-4 border-info">
-						<div class="card-body">
-							<div class="d-flex align-items-center">
-								<div>
-									<p class="mb-0 text-secondary">Total Orders</p>
-									<h4 class="my-1 text-info">4805</h4>
-									<p class="mb-0 font-13">+2.5% from last week</p>
-								</div>
-								<div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i class='bx bxs-cart'></i>
-								</div>
-							</div>
-						</div>
-					 </div>
-				   </div>
-				   <div class="col">
-					<div class="card radius-10 border-start border-0 border-4 border-danger">
-					   <div class="card-body">
-						   <div class="d-flex align-items-center">
-							   <div>
-								   <p class="mb-0 text-secondary">Total Revenue</p>
-								   <h4 class="my-1 text-danger">$84,245</h4>
-								   <p class="mb-0 font-13">+5.4% from last week</p>
-							   </div>
-							   <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i class='bx bxs-wallet'></i>
-							   </div>
-						   </div>
-					   </div>
+					    <div class="card h-100 radius-10 border-start border-0 border-4 border-info">
+					        <div class="card-body d-flex flex-column justify-content-between">
+					            <div class="d-flex align-items-center">
+					                <div>
+					                    <p class="mb-0 text-secondary">Total Vehicles</p>
+					                    <h4 class="my-1 text-info">${dashRecord.totalVehicleCount}</h4>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
 					</div>
-				  </div>
+								   <div class="col">
+				    <div class="card h-100 radius-10 border-start border-0 border-4 border-info">
+				        <div class="card-body d-flex flex-column justify-content-between">
+				            <div class="d-flex align-items-center">
+				                <div>
+				                    <p class="mb-0 text-secondary">Todays Vehicle</p>
+				                    <h4 class="my-1 text-info">${dashRecord.todayEnteredVehicleCount}</h4>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
 				  <div class="col">
-					<div class="card radius-10 border-start border-0 border-4 border-success">
-					   <div class="card-body">
-						   <div class="d-flex align-items-center">
-							   <div>
-								   <p class="mb-0 text-secondary">Bounce Rate</p>
-								   <h4 class="my-1 text-success">34.6%</h4>
-								   <p class="mb-0 font-13">-4.5% from last week</p>
-							   </div>
-							   <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i class='bx bxs-bar-chart-alt-2' ></i>
-							   </div>
-						   </div>
-					   </div>
+					    <div class="card h-100 radius-10 border-start border-0 border-4 border-info">
+					        <div class="card-body d-flex flex-column justify-content-between">
+					            <div class="d-flex align-items-center">
+					                <div>
+					                    <p class="mb-0 text-secondary">Total Parked</p>
+					                    <h4 class="my-1 text-info">${dashRecord.totalParkedVehicleCount}</h4>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
 					</div>
-				  </div>
 				  <div class="col">
-					<div class="card radius-10 border-start border-0 border-4 border-warning">
-					   <div class="card-body">
-						   <div class="d-flex align-items-center">
-							   <div>
-								   <p class="mb-0 text-secondary">Total Customers</p>
-								   <h4 class="my-1 text-warning">8.4K</h4>
-								   <p class="mb-0 font-13">+8.4% from last week</p>
-							   </div>
-							   <div class="widgets-icons-2 rounded-circle bg-gradient-orange text-white ms-auto"><i class='bx bxs-group'></i>
-							   </div>
-						   </div>
-					   </div>
+					    <div class="card h-100 radius-10 border-start border-0 border-4 border-info">
+					        <div class="card-body d-flex flex-column justify-content-between">
+					            <div class="d-flex align-items-center">
+					                <div>
+					                    <p class="mb-0 text-secondary">Todays Parked Vehicle</p>
+					                    <h4 class="my-1 text-info">${dashRecord.todayParkedVehicleCount}</h4>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
 					</div>
-				  </div> 
 				</div><!--end row-->
+				
+				<!-- New Section: Labeled Parking Fee Records -->
+			<div class="row mt-4">
+			    <div class="col-12">
+			        <h5 class="mb-3 text-primary">Parking Fee Details</h5>
+			        <div class="card">
+			            <div class="card-body">
+			                <div class="table-responsive">
+			                    <table class="table table-bordered text-center">
+			                        <thead class="table-primary">
+			                            <tr>
+			                                <th>Vehicle Type</th>
+			                                <th>Hourly Fee (₹)</th>
+			                                <th>Per Day Fee (₹)</th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                            <tr>
+			                                <td>Two-Wheeler</td>
+			                                <td>${dashRecord.twoWheelerFee.hourlyFee}</td>
+			                                <td>${dashRecord.twoWheelerFee.dailyFee}</td>
+			                            </tr>
+			                            <tr>
+			                                <td>Four-Wheeler</td>
+			                                <td>${dashRecord.fourWheelerFee.hourlyFee}</td>
+			                                <td>${dashRecord.fourWheelerFee.dailyFee}</td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
 
 		<!--end page wrapper -->
 		<!--start overlay-->

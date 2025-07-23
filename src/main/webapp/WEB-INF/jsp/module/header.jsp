@@ -28,6 +28,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/dark-theme.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/semi-dark.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/header-colors.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
 	<title>Vehicle Parking System</title>
 	<style>
 		.bx-checkbox-square{
@@ -88,20 +90,34 @@
 				</c:if>
 			
 				<c:if test="${sessionScope.userRole == 'Admin'}">
-				    <!-- Two Wheeler Slot -->
+					<li>
+					    <a href="${pageContext.request.contextPath}/slot-form">
+					        <div class="parent-icon"><span>➕</span></div>
+					        <div class="menu-title">Create Slots</div>
+					    </a>
+					</li>
+					 <li>
+				        <a href="javascript:;" class="has-arrow">
+				            <div class="parent-icon"><span>🗒️</span></div>
+				            <div class="menu-title">Parking Fee</div>
+				        </a>
+				        <ul>
+				            <li><a href="${pageContext.request.contextPath}/parking/parking-fees-form"><i class='bx bx-radio-circle'></i>Set Parking Fee</a></li>
+				       		<li><a href="${pageContext.request.contextPath}/parking/parking-fee-list"><i class='bx bx-radio-circle'></i>Parking Fee List</a></li>
+				        </ul>
+				    </li>	
+				</c:if>	
+					<!-- Two Wheeler Slot -->
 				    <li>
 				        <a href="javascript:;" class="has-arrow">
 				            <div class="parent-icon"><span>🏍️</span></div>
 				            <div class="menu-title">Two Wheeler Slot</div>
 				        </a>
 				        <ul>
-				            <li><a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Create Slot</a></li>
-				            <li><a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Remove Slot</a></li>
-				            <li><a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Update Slot</a></li>
-				            <li><a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>View Slot List</a></li>
+				            <li><a href="${pageContext.request.contextPath}/slot-list/two wheeler"><i class='bx bx-radio-circle'></i>View Slot List</a></li>
 				        </ul>
 				    </li>
-				
+					
 				    <!-- Four Wheeler Slot -->
 				    <li>
 				        <a href="javascript:;" class="has-arrow">
@@ -109,15 +125,9 @@
 				            <div class="menu-title">Four Wheeler Slot</div>
 				        </a>
 				        <ul>
-				            <li><a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Create Slot</a></li>
-				            <li><a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Remove Slot</a></li>
-				            <li><a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Update Slot</a></li>
-				            <li><a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>View Slot List</a></li>
+				            <li><a href="${pageContext.request.contextPath}/slot-list/four wheeler""><i class='bx bx-radio-circle'></i>View Slot List</a></li>
 				        </ul>
 				    </li>
-				
-				</c:if>
-
 				
 				<c:if test="${sessionScope.userRole == 'Admin' || sessionScope.userRole == 'Guard'}">
 				    <li>
@@ -126,43 +136,12 @@
 				            <div class="menu-title">Manage Parking</div>
 				        </a>
 				        <ul>
-				            <!-- Two Wheeler Slot Submenu -->
-				            <li>
-				                <a href="javascript:;" class="has-arrow has-sub-arrow">
-				                    <i class='bx bx-checkbox-square'></i>Two Wheeler Slot
-				                </a>
-				                <ul>
-				                    <li><a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Assign Slot</a></li>
-				                    <li><a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Delete slot</a></li>
-				                    <li><a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>View Engaged slot</a></li>
-				                    <li><a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>View Remaining slot</a></li>
-				                </ul>
-				            </li>
-				
-				            <!-- Four Wheeler Slot Submenu -->
-				            <li>
-				                <a href="javascript:;" class="has-arrow has-sub-arrow">
-				                    <i class='bx bx-checkbox-square'></i>Four Wheeler Slot
-				                </a>
-				                <ul>
-				                    <li><a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Assign Slot</a></li>
-				                    <li><a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Delete slot</a></li>
-				                    <li><a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>View Engaged slot</a></li>
-				                    <li><a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>View Remaining slot</a></li>
-				                </ul>
-				            </li>
+				        
+				        <li><a href="${pageContext.request.contextPath}/parking/parking-entry-form" class=""><i class='bx bx-checkbox-square'></i>Park Vehicle</a></li>
+				        <li><a href="${pageContext.request.contextPath}/parking/all-parking-list" class=""><i class='bx bx-checkbox-square'></i>Parked Vehicle List</a></li> 
 				        </ul>
 				    </li>
 				</c:if>
-
-				
-				<li>
-					<a href="https://themeforest.net/user/codervent" target="_blank">
-						<div class="parent-icon"><i class="bx bx-support"></i>
-						</div>
-						<div class="menu-title">Support</div>
-					</a>
-				</li>
 			</ul>
 			<!--end navigation-->
 		</div>
@@ -189,15 +168,8 @@
 							</li>
 
 							<li class="nav-item dropdown dropdown-large">
-								<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" data-bs-toggle="dropdown"><span class="alert-count">7</span>
-									<i class='bx bx-bell'></i>
-								</a>
 								<div class="dropdown-menu dropdown-menu-end header-notifications-list">
 									<a href="javascript:;">
-										<div class="msg-header">
-											<p class="msg-header-title">Notifications</p>
-											
-										</div>
 									</a>	
 								</div>
 							</li>
@@ -214,28 +186,19 @@
 					</div>
 					<div class="user-box dropdown px-3">
 						<a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="${pageContext.request.contextPath}/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+							<i class="fas fa-user-circle fa-2x text-primary me-1"></i>
 							<div class="user-info">
-								<p class="user-name mb-0">Pauline Seitz</p>
-								<p class="designattion mb-0">Web Designer</p>
+								<p class="user-name mb-0">${sessionScope.userEmail}</p>
+								<p class="designattion mb-0">${sessionScope.userRole}</p>
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-user fs-5"></i><span>Profile</span></a>
-							</li>
-							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-cog fs-5"></i><span>Settings</span></a>
-							</li>
-							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
-							</li>
-							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-dollar-circle fs-5"></i><span>Earnings</span></a>
-							</li>
-							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-download fs-5"></i><span>Downloads</span></a>
-							</li>
 							<li>
-								<div class="dropdown-divider mb-0"></div>
-							</li>
-							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a>
-							</li>
+							    <a class="dropdown-item d-flex align-items-center" href="#" onclick="confirmLogout(event)">
+							      <i class="bx bx-log-out-circle"></i>
+							      <span>Logout</span>
+							    </a>
+							  </li>
 						</ul>
 					</div>
 				</nav>

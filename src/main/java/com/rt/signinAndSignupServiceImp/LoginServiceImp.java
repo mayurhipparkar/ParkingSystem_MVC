@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.rt.signinAndSignupServiceInterface.LoginServiceInterface;
+import com.rt.signupAndSignInDTO.ParkingDashBoardInfoDTO;
 import com.rt.signupAndSignInDTO.RequestLoginDTO;
 import com.rt.signupAndSignInDTO.ResponseLoginDTO;
 @Service
 public class LoginServiceImp implements LoginServiceInterface {
+	
 	@Autowired 
 	private RestTemplate restTemplate;
 
@@ -27,5 +29,24 @@ public class LoginServiceImp implements LoginServiceInterface {
 		
 		return respLoginDto; 
 	}
+
+	//it is used to fetch record for dashboard.
+	@Override
+	public ParkingDashBoardInfoDTO gatherAllRecordDetails() {
+		
+		String url="http://localhost:8181/users/all-vehicle-parking-details";
+		ParkingDashBoardInfoDTO dashboardInfo=restTemplate.getForObject(url,ParkingDashBoardInfoDTO.class);
+		return dashboardInfo;
+		
+	}
+
+	//it is used to reset the password only for admin.
+	@Override
+	public String resetPassword(String email, String newPassword) {
+		String url="http://localhost:8181/users/reset-password?email="+email+"&pass="+newPassword;		
+		 String message=restTemplate.postForObject(url,null, String.class);
+		return message;
+	}
+
 
 }

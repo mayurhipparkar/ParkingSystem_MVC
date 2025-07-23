@@ -1,4 +1,4 @@
-package com.rt.vehicleEntryDTO.select;
+package com.rt.vehicleEntryDTO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

@@ -5,11 +5,13 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import com.rt.vehicleEntryDTO.add.AddVehicleReqDto;
-import com.rt.vehicleEntryDTO.add.AddVehicleRespDto;
-import com.rt.vehicleEntryDTO.select.RespFetchVehicleInfo;
+import com.rt.vehicleEntryDTO.AddVehicleReqDto;
+import com.rt.vehicleEntryDTO.AddVehicleRespDto;
+import com.rt.vehicleEntryDTO.RespFetchVehicleInfo;
 import com.rt.vehicleEntryServiceInterface.VehicleEntryInterface;
 
 @Service
@@ -25,9 +27,20 @@ public class VehicleEntryServiceImp implements VehicleEntryInterface{
 	    
 		  HttpEntity<AddVehicleReqDto> request=new HttpEntity<>(addVehicleReqDto,headers);
 		  
-		    AddVehicleRespDto addVehicleRespDto=restTemplate.postForObject(url, request, AddVehicleRespDto.class);
-			return addVehicleRespDto;
+		  try {
+		        AddVehicleRespDto addVehicleRespDto = restTemplate.postForObject(url, request, AddVehicleRespDto.class);
+		        return addVehicleRespDto;
+		    } catch (HttpClientErrorException e) {
+		        
+		        String errorMessage = e.getResponseBodyAsString();
+		        throw new RuntimeException("Failed to add vehicle: " + errorMessage);
+		    } catch (RestClientException e) {
+		        // For other errors like connection issues
+		        throw new RuntimeException("Service unavailable or failed: " + e.getMessage());
+		    }
 	}
+	
+	
 	
 	@Override
 	public RespFetchVehicleInfo fetchVehicleData(int id,int sessionUserId,String sessionUserRole) {

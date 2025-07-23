@@ -10,7 +10,7 @@
         margin: 7% 0 0 29.5%;
     }
 
-    #guard-msg {
+   /*  #guard-msg {
         color: black;
         background-color: lightgreen;
         font-weight: bold;
@@ -19,7 +19,7 @@
         margin-top: 10px;
         border: 2px solid black;
     }
-
+ */
     .fade-out {
         transition: opacity 1s ease-out;
         opacity: 0;
@@ -116,7 +116,7 @@
 
     <div class="col-sm-3">
         <c:if test="${not empty msgStatus}">
-            <div id="guard-msg" class="alert alert-info text-center w-100">${msgStatus}</div>
+            <div id="guard-msg" class="alert alert-success text-center w-100">${msgStatus}</div>
         </c:if>
     </div>
 </div>

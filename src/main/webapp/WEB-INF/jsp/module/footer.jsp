@@ -5,6 +5,17 @@
 		</footer>
 	</div>
 	<!--end wrapper-->-
+<!-- this is only for logout the user from dashboard -->
+	<script>
+		  function confirmLogout(event) {
+		    event.preventDefault(); // prevent default link behavior
+		    if (confirm("Are you sure you want to logout?")) {
+		      // Redirect to Spring MVC logout endpoint
+		      window.location.href = "${pageContext.request.contextPath}/logout";
+		    }
+		  }
+</script>
+
 
 	<!-- Bootstrap JS -->
 	<script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap.bundle.min.js"></script>

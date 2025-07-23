@@ -6,8 +6,6 @@ import java.util.Map;
 
 public interface EnteredVehicleListInterface {
 	
-
-	Map<String, Object> getVehicleListByType(int page, int size, String vehicleType,String search,LocalDate entryDate,int sessionUserId,String sessionUserRole);
-	
+	Map<String, Object> getVehicleListByType( String vehicleType,int page, int size,String search,LocalDate entryDate,int sessionUserId,String sessionUserRole);
 
 }

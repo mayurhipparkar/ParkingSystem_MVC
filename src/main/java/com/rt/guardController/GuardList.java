@@ -61,8 +61,7 @@ public class GuardList {
 	public Map<String, Object> guardListByStatusFilter(@PathVariable String role,
 			@RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "8") int size,
-            @RequestParam(required = false) String statusFilter,
-            Model model,HttpSession session) {
+            @RequestParam(required = false) String statusFilter,HttpSession session) {
 		
 		String sessionUserRole=(String)session.getAttribute("userRole");
 		return guardServiceInterface.getAllGuardRecordUsingStatusFilter(page,size,role,statusFilter,sessionUserRole);
@@ -73,8 +72,7 @@ public class GuardList {
 	@ResponseBody
 	 @GetMapping("/guard-list-search/{role}")
 	    public List<AllGuardRespDTO> showGuardList(@PathVariable String role,
-	                                @RequestParam(required = false) String search,
-	                                Model model) {
+	                                @RequestParam(required = false) String search) {
 		
 		System.out.println("search and role :"+search+ " "+role);
 	       return guardServiceInterface.fetchGuardsBySearch(search, role);

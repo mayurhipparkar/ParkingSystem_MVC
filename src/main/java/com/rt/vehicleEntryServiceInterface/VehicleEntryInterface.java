@@ -1,8 +1,8 @@
 package com.rt.vehicleEntryServiceInterface;
 
-import com.rt.vehicleEntryDTO.add.AddVehicleReqDto;
-import com.rt.vehicleEntryDTO.add.AddVehicleRespDto;
-import com.rt.vehicleEntryDTO.select.RespFetchVehicleInfo;
+import com.rt.vehicleEntryDTO.AddVehicleReqDto;
+import com.rt.vehicleEntryDTO.AddVehicleRespDto;
+import com.rt.vehicleEntryDTO.RespFetchVehicleInfo;
 
 public interface VehicleEntryInterface {
 	

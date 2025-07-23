@@ -17,7 +17,7 @@ public class EnteredVehicleListImp implements EnteredVehicleListInterface{
 	private RestTemplate restTemplate;
 	
 	@Override
-	public Map<String, Object> getVehicleListByType(int page, int size, String vehicleType,String search,LocalDate entryDate,int sessionUserId,String sessionUserRole) {
+	public Map<String, Object> getVehicleListByType(String vehicleType,int page, int size,String search,LocalDate entryDate,int sessionUserId,String sessionUserRole) {
 		String URL="http://localhost:8181/list/type?vehicleType="+vehicleType + "&page=" + page + "&size=" + size + "&userId=" + sessionUserId + "&userRole=" + sessionUserRole;		
 		 if (search != null && !search.isEmpty()) {
 			 URL += "&search=" + search;
