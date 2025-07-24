@@ -11,7 +11,7 @@
 					        <div class="card-body d-flex flex-column justify-content-between">
 					            <div class="d-flex align-items-center">
 					                <div>
-					                    <p class="mb-0 text-secondary">Total Vehicles</p>
+					                    <p class="mb-0 text-success">Total Vehicles</p>
 					                    <h4 class="my-1 text-info">${dashRecord.totalVehicleCount}</h4>
 					                </div>
 					            </div>
@@ -23,7 +23,7 @@
 				        <div class="card-body d-flex flex-column justify-content-between">
 				            <div class="d-flex align-items-center">
 				                <div>
-				                    <p class="mb-0 text-secondary">Todays Vehicle</p>
+				                    <p class="mb-0 text-success">Todays Vehicle</p>
 				                    <h4 class="my-1 text-info">${dashRecord.todayEnteredVehicleCount}</h4>
 				                </div>
 				            </div>
@@ -35,7 +35,7 @@
 					        <div class="card-body d-flex flex-column justify-content-between">
 					            <div class="d-flex align-items-center">
 					                <div>
-					                    <p class="mb-0 text-secondary">Total Parked</p>
+					                    <p class="mb-0 text-success">Total Parked</p>
 					                    <h4 class="my-1 text-info">${dashRecord.totalParkedVehicleCount}</h4>
 					                </div>
 					            </div>
@@ -47,7 +47,7 @@
 					        <div class="card-body d-flex flex-column justify-content-between">
 					            <div class="d-flex align-items-center">
 					                <div>
-					                    <p class="mb-0 text-secondary">Todays Parked Vehicle</p>
+					                    <p class="mb-0 text-success">Todays Parked Vehicle</p>
 					                    <h4 class="my-1 text-info">${dashRecord.todayParkedVehicleCount}</h4>
 					                </div>
 					            </div>

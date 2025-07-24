@@ -58,10 +58,23 @@
                             <label for="signinUsername" class="form-label">Username or Email</label>
                             <input type="email" class="form-control" id="signinUseremail" name="email" placeholder="Enter your email@ id" required />
                         </div>
+                        
                         <div class="mb-3">
-                            <label for="signinPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="signinPassword" name="password" placeholder="Enter your pass***d" required />
-                        </div>
+					    <label for="newPassword" class="form-label">Password</label>
+					    <div class="input-group">
+					        <input 
+					            type="password" 
+					            class="form-control" 
+					           	id="signinPassword"
+					            name="password" 
+					            placeholder="Enter your pass***d"
+					            required 
+					        />
+					        <button class="btn btn-outline-secondary" type="button" id="togglePasswordLogin">
+					            Show
+					        </button>
+					    </div>
+					</div>
                         <button type="submit" class="btn btn-primary w-100">Login</button>
                     </form>
                     <c:if test="${showForgotPassword}">
@@ -239,9 +252,18 @@ window.onload = function () {
     }
 };
 
-/* it is used to show and hide password */
+/* it is used to show and hide password in reset password */
 document.getElementById('togglePassword').addEventListener('click', function () {
     const passwordField = document.getElementById('newPassword');
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    this.textContent = type === 'password' ? 'Show' : 'Hide';
+});
+
+
+/* it is used to show and hide password in login */
+document.getElementById('togglePasswordLogin').addEventListener('click', function () {
+    const passwordField = document.getElementById('signinPassword');
     const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordField.setAttribute('type', type);
     this.textContent = type === 'password' ? 'Show' : 'Hide';
