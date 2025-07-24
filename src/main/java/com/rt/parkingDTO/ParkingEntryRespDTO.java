@@ -1,5 +1,6 @@
 package com.rt.parkingDTO;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -18,6 +19,7 @@ public class ParkingEntryRespDTO {
     private String vehicleNumber;
     private String vehicleType;
     private String ownerName;
+    private String contactNumber;
     private String slotId;
     private LocalDate inDate;
     private LocalTime inTime; 
@@ -26,5 +28,8 @@ public class ParkingEntryRespDTO {
     private ParkingStatus status;
     private String formattedEntryTime;
     private String formattedExitTime;
+    
+    private BigDecimal hourlyFee;
+    private BigDecimal dailyFee;
 	
 }

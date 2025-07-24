@@ -114,7 +114,7 @@ public class ParkingManagementController {
     	try {
     	String message=parkingManagementServiceInterface.assignSlotToVehicle(parkingEntryReqDTO);
     	redirectAttributes.addFlashAttribute("msgStatus", message);
-    	 return"redirect:/all-parking-list";
+    	 return"redirect:/parking/all-parking-list";
     	 
     	}catch(RuntimeException e) {
     		// Log the exception and set error message

@@ -239,7 +239,7 @@ window.onload = function () {
     }
 };
 
-
+/* it is used to show and hide password */
 document.getElementById('togglePassword').addEventListener('click', function () {
     const passwordField = document.getElementById('newPassword');
     const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
